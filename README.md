@@ -45,8 +45,43 @@ http://cs231n.stanford.edu/reports/zyh_project.pdf
 
 先安装docker，以下教程在Ubuntu 14.04 通过测试
 
+要在Ubuntu 14.04 x64安装Docker，需要确保Ubuntu的版本是64位，而且内核版本需大于3.10版。
+
+* 检查Ubuntu的内核版本
+
 ```
-https://www.docker.com/
+# uname -r 
+3.13.0-55-generic
+```
+
+* 更新系统，确保软件包列表的有效性
+
+```
+# apt-get update
+```
+
+* 如果Ubuntu的版本不满足，还需升级Ubuntu
+
+```
+apt-get -y upgrade
+```
+
+一旦以上需求都满足了，就可以开始安装Docker。Docker最早只支持Ubuntu，后来有了CentOS和其它RedHat相关的发布包。安装很简单，执行命令：
+
+```
+# apt-get -y install docker.io
+```
+
+创建软链接
+
+```
+# ln -sf /usr/bin/docker.io /usr/local/bin/docker
+```
+
+下面讲讲述Docker的用法。要查看Docker可以使用的命令，在终端运行docker命令，它会打印所有可用的命令列表及使用描述。
+
+```
+# docker
 ```
 
 下载deep_ocr_workspace.zip (https://pan.baidu.com/s/1nvz2wrB 和 https://pan.baidu.com/s/1qYPKH3Y )
@@ -54,9 +89,9 @@ https://www.docker.com/
 两个文件的md5sum值，用于校验文件是否成功下载。
 
 ```
-$ md5sum deep_ocr_workspace.zip
+$ md5sum deep_ocr_workspace.zip.del
 ffeda7ea6604e7b8835c05a33fa0459e  deep_ocr_workspace.zip
-$ md5sum deep_ocr_workspace.z01
+$ md5sum deep_ocr_workspace.z01.del
 ea66796c2bbdb2bec9b7ee28eb44012d  deep_ocr_workspace.z01
 ```
 
